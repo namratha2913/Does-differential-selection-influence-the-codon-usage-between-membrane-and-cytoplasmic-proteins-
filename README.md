@@ -1,1 +1,1 @@
-# Does-differential-selection-influence-the-codon-usage-between-membrane-and-cytoplasmic-proteins-
+# Does differential selection pressure dictate codon usage in membrane and cytoplasmic proteins?
