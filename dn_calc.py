@@ -111,22 +111,9 @@ for file_name in main_fold:
         codon_list_ = list(align.iloc[:][i])
 
         check_syn = find_codon_at_mismatch(codon_list_)
-        #all_codon_pos.append(check_syn[-1])
-        #dnds_res = dnds_calc(check_syn[-1], check_syn[0], check_syn[1])
-        #aval_n += dnds_res[0]
-        #aval_s += dnds_res[2]
         diffn += len(check_syn[1])-1
         print(diffn)
-        #diffs += dnds_res[3]
-        
-        '''if check_syn[5]:
-            syn_mismatch+=1
-        if check_syn[6]:
-            non_syn_mismatch+=1
-        if check_syn[7]:
-            both_mismatch+=1'''
-    
-	   
+      	   
     print((diffn/(shape[1]-2)))
     print(diffn)  
 
@@ -166,20 +153,9 @@ for file_name in main_fold:
         codon_list_ = list(align.iloc[:][i])
         
         check_syn = find_codon_at_mismatch(codon_list_)
-        #all_codon_pos.append(check_syn[-1])
-        #dnds_res = dnds_calc(check_syn[-1], check_syn[0], check_syn[1])
-        #aval_n += dnds_res[0]
-        #aval_s += dnds_res[2]
         diffn += len(check_syn[1])-1
         print(diffn)
-        #diffs += dnds_res[3]
-        
-        '''if check_syn[5]:
-            syn_mismatch+=1
-        if check_syn[6]:
-            non_syn_mismatch+=1
-        if check_syn[7]:
-            both_mismatch+=1'''
+ 
         
     print((diffn/(shape[1]-2)))  
 
