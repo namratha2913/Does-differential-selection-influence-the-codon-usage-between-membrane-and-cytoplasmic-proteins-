@@ -1,5 +1,4 @@
-#mkdir /home/namratha/Namratha/CUB_codon_usage_bias/Ecoli_genomes_Datasets/ncbi_refseq/alignment
-#mkdir /home/namratha/Namratha/CUB_codon_usage_bias/Ecoli_genomes_Datasets/ncbi_refseq/matrix
+########## Shell script to perform multiple sequence analysis #############
 
 for file in Genes_cyto_alleles/*; do
 	output=$"alignment_cyt/"$(basename -a $file)-"output.fasta"
@@ -9,6 +8,6 @@ for file in Genes_cyto_alleles/*; do
 echo $file
 echo $(basename -a $file)
 #echo $pseudo_file
-java -jar /home/namratha/Namratha/CUB_codon_usage_bias/macse_v2.07.jar -prog alignSequences -seq $file -out_NT $output -out_AA $output_AA -max_refine_iter 0
+java -jar macse_v2.07.jar -prog alignSequences -seq $file -out_NT $output -out_AA $output_AA -max_refine_iter 0
 
 done
