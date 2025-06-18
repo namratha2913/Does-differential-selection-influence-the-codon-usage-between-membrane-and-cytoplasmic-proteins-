@@ -7,8 +7,6 @@ import statistics as st
 
 codon_table = pd.read_csv('codon_usage.csv')
 print(codon_table)
-#print(codon_table.iloc[0][0])
-
 # dictionary of Amino acid: #codons coding the amino acid
 
 codon_syn_numbers = {'Glycine' : 4, 'Glutamate' : 2, 'Aspartate' : 2, 'Valine' : 4, 'Alanine': 4, 'Arginine' : 6, 'Lysine' : 2, 'Asparagine': 2 , 'Methionine': 1, 'Isoleucine': 3, 'Threonine' :4, 'Tryptophan':1, 'Cysteine':2, 'Stop':3, 'Tyrosine': 2, 'Phenylalanine': 2, 'Serine':6, 'Glutamine' : 2, 'Histadine': 2, 'Leucine': 6, 'Proline' : 4, 'None': 1}
@@ -25,7 +23,7 @@ def codon_to_aminoacid(codon):
     return "None"
     
     
-# function to identify the mismatches with respect to the reference sequence used
+# function to quantify non-synonymous substitutions
 def find_codon_at_mismatch(codon_genome):
     
     checked_codon =[]
@@ -83,12 +81,7 @@ def dnds_calc(codon_all,uniqcodon_list,aa_list):
 				diffs+=1
 			
 	return den_n, diffn, den_s, diffs
-		
-		
-		
-			
- 
-    
+		 
 ######################################################################################################################################################################
 
 #'''
