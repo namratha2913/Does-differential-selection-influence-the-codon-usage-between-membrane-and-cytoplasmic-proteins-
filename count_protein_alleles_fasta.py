@@ -4,19 +4,14 @@ import re
 import pandas as pd
 import os
 
+#Count the number of protein sequence alleles
 
 main_fold = os.listdir('protein_analysis/proteins_cytoplasm')
 
 results =[]
 for file_name in main_fold: 
 	align = SeqIO.parse('protein_analysis/proteins_cytoplasm/'+str(file_name), 'fasta')
-
-	print(file_name)
-	#print ("Alignment length %i" % align.get_alignment_length())
-
-
 	to_df =[]
-	#ref = align[0].seq
 	allele_count = 0
 	total_count = 0
 
@@ -45,12 +40,7 @@ main_fold = os.listdir('protein_analysis/proteins_membrane/')
 for file_name in main_fold: 
 	align = SeqIO.parse('protein_analysis/proteins_membrane/'+str(file_name), 'fasta')
 
-	print(file_name)
-	#print ("Alignment length %i" % align.get_alignment_length())
-
-
 	to_df =[]
-	#ref = align[0].seq
 	allele_count = 0
 	total_count = 0
 
