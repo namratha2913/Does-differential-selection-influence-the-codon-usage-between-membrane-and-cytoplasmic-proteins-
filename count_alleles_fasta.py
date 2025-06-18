@@ -4,17 +4,15 @@ import re
 import pandas as pd
 import os
 
+#count the number of coding sequence alleles 
 
-main_fold = os.listdir('SIMGenes_alleles/cyto_seqs')
+main_fold = os.listdir('Genes_cytoplasm')
 
 results =[]
 for file_name in main_fold: 
-	align = SeqIO.parse('/home/namratha/Namratha/NewDrive_link/CUB_codon_usage_bias/Simulate-null-hypothesis/Ecoli/SIMGenes_alleles/cyto_seqs/'+str(file_name), 'fasta')
+	align = SeqIO.parse('Genes_cytoplasm/'+str(file_name), 'fasta')
 	print(file_name)
-	#print ("Alignment length %i" % align.get_alignment_length())
-
 	to_df =[]
-	#ref = align[0].seq
 	allele_count = 0
 	total_count = 0
 
@@ -39,18 +37,14 @@ df.to_csv('Results_data/'+'count_allele_cyto_fasta.csv', index=False)
 
 results =[]
 
-main_fold = os.listdir('/home/namratha/Namratha/NewDrive_link/CUB_codon_usage_bias/Simulate-null-hypothesis/Ecoli/SIMGenes_alleles/membrane_seqs')
+main_fold = os.listdir('Genes_membrane')
 
 for file_name in main_fold: 
 
-	align = SeqIO.parse('/home/namratha/Namratha/NewDrive_link/CUB_codon_usage_bias/Simulate-null-hypothesis/Ecoli/SIMGenes_alleles/membrane_seqs/'+str(file_name), 'fasta')
+	align = SeqIO.parse('Genes_membrane/'+str(file_name), 'fasta')
 
 	print(file_name)
-	#print ("Alignment length %i" % align.get_alignment_length())
-
-
 	to_df =[]
-	#ref = align[0].seq
 	allele_count = 0
 	total_count = 0
 
