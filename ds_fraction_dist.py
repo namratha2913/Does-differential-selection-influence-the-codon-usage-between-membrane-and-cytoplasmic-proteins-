@@ -7,7 +7,6 @@ import statistics as st
 
 codon_table = pd.read_csv('codon_usage.csv')
 print(codon_table)
-#print(codon_table.iloc[0][0])
 
 # dictionary of Amino acid: #codons coding the amino acid
 
@@ -179,12 +178,7 @@ for file_name in main_fold:
                 degn_pos_6[6]+=1
             if dnds_res[1] >=1:
                 degn_pos_6[100]+=1
-        
-        
- 
-        
-        #print(degn_num)
-        #print(degn_count)
+
         
     #print([degn_num[2]/degn_count[2], degn_num[3]/degn_count[3], degn_num[4]/degn_count[4], degn_num[6]/degn_count[6]])
     results.append([(file_name.split('.')[0]) ,shape[1]-1 , degn_pos_2[1]/degn_count[2] , degn_pos_2[2]/degn_count[2] ,degn_pos_2[100]/degn_count[2] ,degn_pos_3[1]/degn_count[3] ,degn_pos_3[2]/degn_count[3] ,degn_pos_3[3]/degn_count[3] ,degn_pos_3[100]/degn_count[3] ,degn_pos_4[1]/degn_count[4] ,degn_pos_4[2]/degn_count[4] ,degn_pos_4[3]/degn_count[4] ,degn_pos_4[4]/degn_count[4] ,degn_pos_4[100]/degn_count[4] ,degn_pos_6[1]/degn_count[6] ,degn_pos_6[2]/degn_count[6] ,degn_pos_6[3]/degn_count[6] ,degn_pos_6[4]/degn_count[6] ,degn_pos_6[5]/degn_count[6] , degn_pos_6[6]/degn_count[6],degn_pos_6[100]/degn_count[6]])
@@ -284,13 +278,7 @@ for file_name in main_fold:
             if dnds_res[3] >=1:
                 degn_pos_6[100]+=1
         
-        
- 
-        
-        #print(degn_num)
-        #print(degn_count)
-        
-    #print([degn_num[2]/degn_count[2], degn_num[3]/degn_count[3], degn_num[4]/degn_count[4], degn_num[6]/degn_count[6]])
+       
     results.append([(file_name.split('.')[0]) ,shape[1]-1 , degn_pos_2[1]/degn_count[2] , degn_pos_2[2]/degn_count[2] ,degn_pos_2[100]/degn_count[2] ,degn_pos_3[1]/degn_count[3] ,degn_pos_3[2]/degn_count[3] ,degn_pos_3[3]/degn_count[3] ,degn_pos_3[100]/degn_count[3] ,degn_pos_4[1]/degn_count[4] ,degn_pos_4[2]/degn_count[4] ,degn_pos_4[3]/degn_count[4] ,degn_pos_4[4]/degn_count[4] ,degn_pos_4[100]/degn_count[4] ,degn_pos_6[1]/degn_count[6] ,degn_pos_6[2]/degn_count[6] ,degn_pos_6[3]/degn_count[6] ,degn_pos_6[4]/degn_count[6] ,degn_pos_6[5]/degn_count[6] , degn_pos_6[6]/degn_count[6],degn_pos_6[100]/degn_count[6]])
    
 
