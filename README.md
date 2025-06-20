@@ -1,5 +1,8 @@
 # Does differential selection pressure dictate codon usage in membrane and cytoplasmic proteins?
 
+# This project contains the codes used in the study: 
+- # Synonymous and non-synonymous variation reflect distinct selective pressures on membrane and cytoplasmic proteins.
+
 The following code are used to analyze genome data and identify genomic signatures of the evolution of cytoplasmic and membrane proteins.
 
 1. multiple_files_macse.sh - To perform multiple sequence alignment
