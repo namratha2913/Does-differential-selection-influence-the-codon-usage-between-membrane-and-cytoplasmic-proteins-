@@ -1,0 +1,83 @@
+################### Python code to clean fasta files ######
+import numpy as np
+import matplotlib as mplt
+import pandas as pd
+import sys
+import csv
+from Bio import SeqIO
+import os
+
+
+## In every fasta file remove the gene sequences which has characters other than ATGC
+
+
+def verify(seq):
+
+	DNAchar = ['A','T','G','C']
+	
+	flag =1
+	for i in seq:
+		if i not in DNAchar:
+			flag =0
+			break
+	return flag
+	
+		
+
+main_fold = os.listdir('Genes_cytoplasm_raw')
+
+for file_name in main_fold: 
+	align = SeqIO.parse('Genes_cytoplasm_raw/'+str(file_name), 'fasta')
+
+	for record in align:
+    
+		if verify(str(record.seq)):
+			with open("Genes_cytoplasm/"+str(file_name)[:-4]+".fna", "a") as genefile:
+				to_write = '>'+record.id+'\n'+str(record.seq)+'\n'
+				print(to_write)
+				genefile.write(str(to_write))
+
+###################  Python code to convert fasta file resulted from multple sequnce alignment to clustal files ######
+from Bio import AlignIO
+import os
+
+
+main_fold = os.listdir('alignment_cyt/')
+
+
+for file_name in main_fold:
+
+    AlignIO.convert("alignment_cyt/"+str(file_name), "fasta", "cyto_clustal_align/"+str(file_name)[:-5]+"clu", "clustal")
+
+
+
+######### Python code to parse clustal file and convert to tsv files for analysis ##########
+from Bio import AlignIO
+import re
+import pandas as pd
+import os
+
+main_fold = os.listdir('membrane_clustal_align')
+
+for file_name in main_fold: 
+
+    align = AlignIO.read('membrane_clustal_align/'+str(file_name), 'clustal')
+
+
+    print(file_name)
+    #print ("Alignment length %i" % align.get_alignment_length())
+
+
+    to_df = []
+    for record in align:
+        #print ("%s - %s " % (record.id, record.seq))
+        
+        to_df.append([str(record.id)])
+        to_df[-1].extend(re.findall('...',str(record.seq)))
+              
+        #print(to_df)
+            
+    df = pd.DataFrame(to_df)
+    #print(list(df.iloc[3]))
+    df.to_csv('membrane_align_tsv/'+str(file_name.split('.')[0])+'.csv', header=False, index=False)
+
