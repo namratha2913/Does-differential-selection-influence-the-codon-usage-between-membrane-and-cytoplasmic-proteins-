@@ -1,5 +1,4 @@
-# This project includes the code used in the research study titled: Synonymous and non-synonymous variation reflect distinct selective pressures on membrane and cytoplasmic proteins.
-
+# This project includes the code used in the research study titled: Genomic signatures of asymmetric selection on membrane and cytoplasmic proteins.
 The following code are used to analyze genome data and identify genomic signatures of the evolution of cytoplasmic and membrane proteins.
 
 1. multiple_files_macse.sh - To perform multiple sequence alignment
