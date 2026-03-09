@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Input and output directories
+INPUT_DIR="alphafold/Ecoli_membrane"
+OUTPUT_DIR="alphafold/Ecoli_deeptmhmm_results"
+
+# Create output directory if it doesn't exist
+mkdir -p "${OUTPUT_DIR}"
+
+# Loop over each fasta file
+for fasta in "${INPUT_DIR}"/*.fasta; do
+    # Extract protein name (file name without path and extension)
+    protein=$(basename "${fasta}" .fasta)
+
+    echo "Running DeepTMHMM for ${protein}..."
+
+    # Create protein-specific output directory
+    mkdir -p "${OUTPUT_DIR}/${protein}"
+
+    # Run DeepTMHMM
+    biolib run DTU/DeepTMHMM \
+        --fasta "${fasta}" \
+        --output "${OUTPUT_DIR}/${protein}"
+
+done
+
+echo "All DeepTMHMM jobs finished."
+
+
